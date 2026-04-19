@@ -1,0 +1,49 @@
+version: '3.8'
+
+services:
+  # 🔵 BLE Bluetooth Service
+  ble-scanner:
+    build:
+      context: ./bluetooth_service
+      dockerfile: Dockerfile
+    container_name: aquaponics-ble-scanner
+    environment:
+      - BACKEND_URL=http://aquaponics-backend:5000
+      - DEVICE_ID=aquaponics-unit-01
+      - BLE_SCAN_INTERVAL=10
+      - BLE_DEVICE_TIMEOUT=30
+    network_mode: host  # Required for Bluetooth
+    devices:
+      - /dev/bluetooth:/dev/bluetooth  # Pass Bluetooth device
+    restart: unless-stopped
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+  # Optional: Run alongside existing backend
+  # (Uncomment if containerizing backend too)
+  # 
+  # aquaponics-backend:
+  #   build:
+  #     context: ./backend
+  #   container_name: aquaponics-backend
+  #   ports:
+  #     - "5000:5000"
+  #   environment:
+  #     - PORT=5000
+  #     - MONGO_URI=mongodb://mongo:27017/aquaponics
+  #   depends_on:
+  #     - mongo
+  #
+  # mongo:
+  #   image: mongo:7
+  #   container_name: aquaponics-mongo
+  #   ports:
+  #     - "27017:27017"
+  #   volumes:
+  #     - mongo_data:/data/db
+  #
+  # volumes:
+  #   mongo_data:

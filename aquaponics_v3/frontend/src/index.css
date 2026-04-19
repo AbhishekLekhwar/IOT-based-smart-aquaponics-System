@@ -1,0 +1,115 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    font-family: 'Space Grotesk', sans-serif;
+    background-color: #030712;
+    color: #f9fafb;
+  }
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #111827;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #374151;
+    border-radius: 3px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #10b98a;
+  }
+}
+
+@layer components {
+  .card {
+    @apply bg-gray-900 border border-gray-800 rounded-2xl p-5 shadow-xl;
+  }
+  .card-header {
+    @apply flex items-center justify-between mb-4;
+  }
+  .badge {
+    @apply inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-medium;
+  }
+  .btn {
+    @apply inline-flex items-center gap-2 px-4 py-2 rounded-xl font-medium text-sm transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-900;
+  }
+  .btn-primary {
+    @apply btn bg-aqua-600 hover:bg-aqua-500 text-white focus:ring-aqua-500 active:scale-95;
+  }
+  .btn-secondary {
+    @apply btn bg-gray-800 hover:bg-gray-700 text-gray-200 focus:ring-gray-600 active:scale-95 border border-gray-700;
+  }
+  .btn-danger {
+    @apply btn bg-red-900/50 hover:bg-red-800 text-red-300 border border-red-800 focus:ring-red-600 active:scale-95;
+  }
+  .toggle-on {
+    @apply bg-aqua-500;
+  }
+  .toggle-off {
+    @apply bg-gray-700;
+  }
+  .stat-value {
+    @apply text-3xl font-bold font-mono tracking-tight;
+  }
+  .stat-label {
+    @apply text-xs text-gray-400 uppercase tracking-widest font-medium;
+  }
+  .status-dot {
+    @apply w-2 h-2 rounded-full;
+  }
+  .glass {
+    @apply bg-white/5 backdrop-blur-sm border border-white/10;
+  }
+}
+
+/* Glow effects */
+.glow-aqua {
+  box-shadow: 0 0 20px rgba(16, 185, 138, 0.15);
+}
+.glow-blue {
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.15);
+}
+.glow-red {
+  box-shadow: 0 0 20px rgba(239, 68, 68, 0.15);
+}
+.glow-yellow {
+  box-shadow: 0 0 20px rgba(245, 158, 11, 0.15);
+}
+
+/* Animated gradient background */
+.gradient-bg {
+  background: linear-gradient(135deg, #030712 0%, #0a1628 50%, #030a0a 100%);
+}
+
+/* Number counter animation */
+@keyframes countUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.count-anim {
+  animation: countUp 0.4s ease-out;
+}
+
+/* Water wave */
+@keyframes wave {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.wave-anim {
+  animation: wave 3s linear infinite;
+}
+
+/* Ping pulse for live indicator */
+@keyframes ping-slow {
+  75%, 100% { transform: scale(1.8); opacity: 0; }
+}
+.ping-slow {
+  animation: ping-slow 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+}

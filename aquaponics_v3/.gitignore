@@ -1,0 +1,92 @@
+# Dependencies
+node_modules/
+package-lock.json
+yarn.lock
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+.env.development
+.env.production
+
+# Build folders
+build/
+dist/
+.next/
+out/
+
+# React/Frontend
+frontend/build/
+frontend/dist/
+frontend/.env
+frontend/.env.local
+
+# Backend
+backend/uploads/
+backend/logs/
+
+# OS files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# IDE
+.vscode/
+.idea/
+*.code-workspace
+*.sublime-project
+*.sublime-workspace
+
+# Testing
+coverage/
+.nyc_output/
+
+# Misc
+*.log
+.cache/
+.eslintcache
+*.pid
+*.seed
+*.pid.lock
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+
+# Temporary files
+temp/
+tmp/
+*.tmp
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+
+# Arduino/ESP32
+.pio/
+.pioenvs/
+.pio/
+
+# Camera uploads (keep demo photos only)
+backend/uploads/camera/*
+!backend/uploads/camera/.gitkeep
+
+# Generated files
+simulator.js.bak
+continuous-demo.js.bak
+camera-demo.js.bak
